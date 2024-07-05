@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int percentageLetter(string s, char letter) {
+        int count = 0;
+        
+        // Count the occurrences of the letter in the string
+        for (char c : s) {
+            if (c == letter) {
+                count++;
+            }
+        }
+        int percentage = (count * 100) / s.size();
+        
+        return percentage;
+    }
+};
