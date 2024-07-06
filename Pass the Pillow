@@ -1,0 +1,14 @@
+class Solution {
+public:
+      int PassthePillow(int n, int time){
+          int position = 1;
+          int direction = 1;
+          for(int i = 0; i < time; ++i){
+              position += direction;
+              if(position == 1 || position == n){
+                 direction = -direction;
+              }
+          }
+      return position;
+   }
+};
