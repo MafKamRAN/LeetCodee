@@ -1,0 +1,13 @@
+class Solution{
+public:
+      int numWaterBottles(int numBottles, int numExchange){
+          int totalBottles = numBottles;
+          int empytBottles = numBottles;
+          while(emptyBottles >= numExchange){
+          int fullBottles = emptyBottles / numExchange;
+          totalBottles += fullBottles;
+          emptyBottles = emptyBottles % numExchange + fullBottles;
+          }
+          return totalBottles; 
+      }
+};
