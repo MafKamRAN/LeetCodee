@@ -1,0 +1,13 @@
+class Solution{
+public:
+vector<int> FindChars(vector<string>& words, int x){
+int w = words.size();
+vector<int> ans;
+for(int i = 0; i < w; i++){
+if(words[i].find(x) != string::npos){
+ans.push_back(i);
+}
+}
+return ans;
+}
+};
