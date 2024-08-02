@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minSwaps(vector<int>& nums) {
+    int n = nums.size();
+    int totalOnes = count(nums.begin(), nums.end(), 1);
+    if (totalOnes == 0) return 0;
+    if (totalOnes == n) return 0;
+    vector<int> extended(nums.begin(), nums.end());
+    extended.insert(extended.end(), nums.begin(), nums.end());
+    int currentCount = 0;
+    for (int i = 0; i < totalOnes; ++i) {
+        if (extended[i] == 1) ++currentCount;
+    }
+    
+    int maxOnesInWindow = currentCount;
+    
+    for (int i = totalOnes; i < extended.size(); ++i) {
+        if (extended[i] == 1) ++currentCount;
+        if (extended[i - totalOnes] == 1) --currentCount;
+        maxOnesInWindow = max(maxOnesInWindow, currentCount);
+    }
+    return totalOnes - maxOnesInWindow;
+    }
+};
