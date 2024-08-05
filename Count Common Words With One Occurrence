@@ -1,0 +1,19 @@
+class Solution{
+  public:
+        int countWords(vector<string>& words1, vector<string>& words2){
+            int counts = 0;
+            unordered_map<string, int> count1, count2;
+            for(string word : words1){
+                count1[word]++;
+            }
+            for(string word : words2){
+                count2[word]++;
+            }
+            for(auto [freq, word] : count1){
+                if(freq == 1 && count2[word] == 1){
+                  counts++;
+                } 
+            }
+            return counts;
+        }
+};
