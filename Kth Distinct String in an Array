@@ -1,0 +1,19 @@
+class Solution{
+public:
+      int kthDistinct(vector<string>& arr, int k){
+          unordered_map<string, int> count;
+          for(string a : arr){
+              count[a]++;
+          }
+          vector<string> solo;
+          for(string a : arr){
+              if(count[a] == 1){
+                solo.push_back(a);
+              }
+          }
+          if(k > 0 && k <= solo.size()){
+            return solo[k - 1];
+          }
+          return "";
+      }
+}
